@@ -28,7 +28,7 @@ namespace SachaBarber.CQRS.Demo.Orders.Domain.Events.Handlers
 
         public async void Handle(OrderAddressChangedEvent orderAddressChangedEvent)
         {
-            await readModelRepository.UpdateOrderAddress(orderAddressChangedEvent.Id,
+            await readModelRepository.UpdateOrderAddress(orderAddressChangedEvent.eventId,
                         orderAddressChangedEvent.NewOrderAddress, orderAddressChangedEvent.Version);
 
             interProcessBus.SendMessage("OrderAddressChangedEvent");

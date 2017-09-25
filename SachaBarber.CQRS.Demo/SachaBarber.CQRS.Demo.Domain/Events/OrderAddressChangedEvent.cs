@@ -19,7 +19,7 @@ namespace SachaBarber.CQRS.Demo.Orders.Domain.Events
 
         public OrderAddressChangedEvent(Guid id, string newOrderAddress, int  version)
         {
-            Id = id;
+            eventId = id;
             NewOrderAddress = newOrderAddress;
             Version = version;
         }

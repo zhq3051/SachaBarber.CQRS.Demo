@@ -69,6 +69,7 @@
     <Compile Include="Bus\IHandlerRegistrar.cs" />
     <Compile Include="Commands\ICommandHandler.cs" />
     <Compile Include="Events\IEventHandler.cs" />
+    <Compile Include="Events\IRepository.cs" />
     <Compile Include="Snapshots\ISnapshotStore.cs" />
     <Compile Include="Domain\Factories\AggregateFactory.cs" />
     <Compile Include="Snapshots\Snapshot.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Messages\IMessage.cs" />
     <Compile Include="Config\BusRegistrar.cs" />
     <Compile Include="Snapshots\SnapshotRepository.cs" />
+    <Compile Include="Util\MongoUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

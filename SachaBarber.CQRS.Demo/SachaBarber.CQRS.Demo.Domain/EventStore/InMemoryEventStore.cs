@@ -26,11 +26,11 @@ namespace SachaBarber.CQRS.Demo.Orders.Domain.EventStore
         public void Save(IEvent @event)
         {
             List<IEvent> list;
-            _inMemoryDB.TryGetValue(@event.Id, out list);
+            _inMemoryDB.TryGetValue(@event.eventId, out list);
             if (list == null)
             {
                 list = new List<IEvent>();
-                _inMemoryDB.Add(@event.Id, list);
+                _inMemoryDB.Add(@event.eventId, list);
             }
             list.Add(@event);
         }

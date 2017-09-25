@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SachaBarber.CQRS.Demo.Orders.Domain", "SachaBarber.CQRS.Demo.Domain\SachaBarber.CQRS.Demo.Orders.Domain.csproj", "{65357DC1-482E-4EBA-8588-6012240E6954}"
 EndProject
@@ -42,6 +42,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F70F8B
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestMongoDB", "TestMongoDB\TestMongoDB.csproj", "{D653FA1C-7BB1-4999-B782-962C90EBAB5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,10 @@ Global
 		{7EB95C96-8F69-46A1-B810-BFEABA0B2973}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EB95C96-8F69-46A1-B810-BFEABA0B2973}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EB95C96-8F69-46A1-B810-BFEABA0B2973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D653FA1C-7BB1-4999-B782-962C90EBAB5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D653FA1C-7BB1-4999-B782-962C90EBAB5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D653FA1C-7BB1-4999-B782-962C90EBAB5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D653FA1C-7BB1-4999-B782-962C90EBAB5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,5 +89,8 @@ Global
 		{DAFD2A8A-D6B0-4433-8DDF-B98460C64EC6} = {4507460F-83D4-4C4A-B0D0-F9A7ACB0276B}
 		{07D50F29-6482-49EA-A165-66F487F8E128} = {77BE359B-1975-46D9-8E4A-7987534E5206}
 		{7EB95C96-8F69-46A1-B810-BFEABA0B2973} = {45FCFD30-F3B7-465C-B238-74ED32357A4A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FED8BFD8-BA2C-42D3-84C5-8192FF210DBF}
 	EndGlobalSection
 EndGlobal

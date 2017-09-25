@@ -35,7 +35,7 @@ namespace CQRSlite.Domain
             foreach (var e in history)
             {
                 if (e.Version != Version + 1)
-                    throw new EventsOutOfOrderException(e.Id);
+                    throw new EventsOutOfOrderException(e.eventId);
                 ApplyChange(e, false);
             }
         }
@@ -56,7 +56,7 @@ namespace CQRSlite.Domain
                 }
                 else
                 {
-                    Id = @event.Id;
+                    Id = @event.eventId;
                     Version++;
                 }
             }
