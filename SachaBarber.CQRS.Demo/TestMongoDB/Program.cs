@@ -12,7 +12,7 @@ namespace TestMongoDB
                 store.Save(null);
 
                 //var p = store.Get();
-                var o = store.Get(new Guid("089373bb-900b-49f2-967b-ee3db8f00c25"), 2);
+                var o = store.Get(new Guid("089373bb-900b-49f2-967b-ee3db8f00c25"), 1);
                 Console.Write(o);
                 Console.Read();
             }

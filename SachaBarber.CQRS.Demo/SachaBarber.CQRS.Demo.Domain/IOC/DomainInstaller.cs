@@ -52,7 +52,8 @@ namespace SachaBarber.CQRS.Demo.Orders.Domain.IOC
                     Component.For<IEventPublisher>().ImplementedBy<BusEventPublisher>().LifeStyle.Singleton,
                     Component.For<IInterProcessBus>().ImplementedBy<InterProcessBus>().LifeStyle.Singleton,
                     Component.For<ISession>().ImplementedBy<Session>().LifeStyle.ApplyLifeStyle(lifestyleApplier),
-                    Component.For<IEventStore>().ImplementedBy<InMemoryEventStore>().LifeStyle.Singleton,
+                    //Component.For<IEventStore>().ImplementedBy<InMemoryEventStore>().LifeStyle.Singleton,
+                    Component.For<IEventStore>().ImplementedBy<MongoEventStore>().LifeStyle.Singleton,
                     Component.For<IReadModelRepository>().ImplementedBy<ReadModelRepository>().LifeStyle.Singleton,
                     Component.For<IBusEventHandler>().ImplementedBy<OrderCreatedEventHandler>()
                         .Named("OrderCreatedEventHandler").LifeStyle.Singleton,

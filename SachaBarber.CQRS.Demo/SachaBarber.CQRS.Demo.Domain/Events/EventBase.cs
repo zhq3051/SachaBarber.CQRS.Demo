@@ -10,7 +10,6 @@ namespace SachaBarber.CQRS.Demo.Orders.Domain.Events
 {
     public  class EventBase : IEvent
     {
-        [BsonId]
         public Guid eventId { get; set; }
         public Guid Id { get; set; }
         public int Version { get; set; }

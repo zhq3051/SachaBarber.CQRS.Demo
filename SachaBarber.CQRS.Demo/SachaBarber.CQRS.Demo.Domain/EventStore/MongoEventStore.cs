@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace SachaBarber.CQRS.Demo.Orders.Domain.EventStore
 {
-    public class MongoEventStore : IRepository<IEvent, Guid>
+    public class MongoEventStore : IRepository<IEvent, Guid>, IEventStore
     {
         protected static IMongoClient _client;
         protected static IMongoDatabase _database;
@@ -42,12 +42,12 @@ namespace SachaBarber.CQRS.Demo.Orders.Domain.EventStore
             });
         }
 
-        public IEnumerable<IEvent> Get(Guid aggregateId, int formVersion)
+        public IEnumerable<IEvent> Get(Guid aggregateId, int fromVersion)
         {
             var collection =_database.GetCollection<OrderCreatedEvent>("GameEvents");
             var builder = Builders<BsonDocument>.Filter;
-            var filter = builder.Eq("eventId", aggregateId) & builder.Gt("Version", formVersion);
-            var result = collection.Find(x => x.eventId == aggregateId && x.Version >= formVersion).ToList<OrderCreatedEvent>();
+            //var filter = builder.Eq("eventId", aggregateId) & builder.Gt("Version", fromVersion);
+            var result = collection.Find(x => x.Id == aggregateId && x.Version > fromVersion).ToList<OrderCreatedEvent>();
             
             return result;
         }
@@ -64,10 +64,27 @@ namespace SachaBarber.CQRS.Demo.Orders.Domain.EventStore
 
         public void Save(IEvent @event)
         {
-            Events.OrderCreatedEvent evt = new Events.OrderCreatedEvent(new Guid("089373bb-900b-49f2-967b-ee3db8f00c25"), "test description", "address1", null, 1);
+            Events.OrderCreatedEvent evt = new Events.OrderCreatedEvent(new Guid("089373bb-900b-49f2-967b-ee3db8f00c25"), "test description", "address1", null, 2);
             var collection = _database.GetCollection<IEvent>("GameEvents");
             collection.InsertOne(evt);
 
+        }
+    }
+
+    public static class GuidExt
+    {
+        public static ObjectId AsObjectId(this Guid gid)
+        {
+            var bytes = gid.ToByteArray().Take(12).ToArray();
+            var oid = new ObjectId(bytes);
+            return oid;
+        }
+
+        public static Guid AsGuid(this ObjectId oid)
+        {
+            var bytes = oid.ToByteArray().Concat(new byte[] { 5, 5, 5, 5 }).ToArray();
+            Guid gid = new Guid(bytes);
+            return gid;
         }
     }
 }
