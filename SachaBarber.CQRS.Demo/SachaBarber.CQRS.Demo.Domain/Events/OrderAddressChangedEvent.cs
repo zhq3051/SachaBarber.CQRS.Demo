@@ -10,7 +10,7 @@ namespace SachaBarber.CQRS.Demo.Orders.Domain.Events
 {
     public class OrderAddressChangedEvent : EventBase
     {
-        public readonly string NewOrderAddress;
+        public string NewOrderAddress;
 
         public OrderAddressChangedEvent()
         {
@@ -19,7 +19,7 @@ namespace SachaBarber.CQRS.Demo.Orders.Domain.Events
 
         public OrderAddressChangedEvent(Guid id, string newOrderAddress, int  version)
         {
-            eventId = id;
+            Id = id;
             NewOrderAddress = newOrderAddress;
             Version = version;
         }

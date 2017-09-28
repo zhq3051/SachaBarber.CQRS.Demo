@@ -28,7 +28,7 @@ namespace SachaBarber.CQRS.Demo.Orders.Domain.Events.Handlers
 
         public async void Handle(OrderDeletedEvent orderDeletedEvent)
         {
-            await readModelRepository.DeleteOrder(orderDeletedEvent.eventId);
+            await readModelRepository.DeleteOrder(orderDeletedEvent.Id);
             interProcessBus.SendMessage("OrderDeletedEvent");
         }
     }

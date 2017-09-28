@@ -18,7 +18,7 @@ namespace SachaBarber.CQRS.Demo.Orders.Domain.Events
 
         public OrderDeletedEvent(Guid id, int version)
         {
-            eventId = id;
+            Id = id;
             Version = version;
         }
     }

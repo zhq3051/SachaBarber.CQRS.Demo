@@ -31,7 +31,7 @@ namespace SachaBarber.CQRS.Demo.Orders.Domain.Events.Handlers
         {
             await readModelRepository.AddOrder(new ReadModel.Models.Order()
             {
-                OrderId = orderCreatedEvent.eventId,
+                OrderId = orderCreatedEvent.Id,
                 Address = orderCreatedEvent.Address,
                 Description = orderCreatedEvent.Description,
                 Version = orderCreatedEvent.Version,

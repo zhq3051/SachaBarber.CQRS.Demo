@@ -25,7 +25,6 @@ namespace SachaBarber.CQRS.Demo.Orders.Domain.Events
             )
         {
             Id = id;
-            eventId = Guid.NewGuid();
             Version = version;
             Description = description;
             Address = address;

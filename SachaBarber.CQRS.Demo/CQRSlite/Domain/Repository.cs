@@ -29,9 +29,9 @@ namespace CQRSlite.Domain
             var i = 0;
             foreach (var @event in aggregate.GetUncommittedChanges())
             {
-                if (@event.eventId == Guid.Empty) 
-                    @event.eventId = aggregate.Id;
-                if (@event.eventId == Guid.Empty)
+                if (@event.Id == Guid.Empty) 
+                    @event.Id = aggregate.Id;
+                if (@event.Id == Guid.Empty)
                     throw new AggregateOrEventMissingIdException(
                         aggregate.GetType(), @event.GetType());
                 i++;

@@ -34,7 +34,7 @@ namespace SachaBarber.CQRS.Demo.Orders.ReadModel
     {
 
         private IDocumentStore documentStore = null;
-        private string dataDir = @"C:\temp\RavenDb";
+        private string dataDir = @"D:\temp\RavenDb";
 
         public ReadModelRepository()
         {
@@ -49,8 +49,16 @@ namespace SachaBarber.CQRS.Demo.Orders.ReadModel
                 DataDirectory = dataDir,
                 UseEmbeddedHttpServer = true
             };
+            try
+            {
+                documentStore.Initialize();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
-            documentStore.Initialize();
+            
 
             //Add order Index
             if (documentStore.DatabaseCommands.GetIndex("Order/ById") == null)
