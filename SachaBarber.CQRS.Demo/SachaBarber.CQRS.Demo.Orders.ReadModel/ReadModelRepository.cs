@@ -93,7 +93,7 @@ namespace SachaBarber.CQRS.Demo.Orders.ReadModel
                             CreateStoreItem(session, "Eight.jpg", "Eight");
                             CreateStoreItem(session, "MisterX.jpg", "Mister X");
                             CreateStoreItem(session, "CaptainMidnight.jpg", "Captain Midnight");
-                        session.SaveChanges();
+                            session.SaveChanges();
                     }
                     return true;
                 });

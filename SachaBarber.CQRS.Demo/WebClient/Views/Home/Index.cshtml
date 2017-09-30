@@ -1,12 +1,13 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿
+@model IEnumerable<SachaBarber.CQRS.Demo.Orders.ReadModel.Models.StoreItem>
 <div class="col-md-12">
     <div class="card">
         <div class="header">
             <h4 class="title">Striped Table</h4>
             <p class="category">Here is a subtitle for this table</p>
         </div>
+
+
         <div class="content table-responsive table-full-width">
             <table class="table table-striped">
                 <thead>
@@ -60,6 +61,37 @@
                         <td>Gloucester</td>
                     </tr>
                 </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="header">
+            <h4 class="title">Striped Table</h4>
+            <p class="category">Here is a subtitle for this table</p>
+        </div>
+        <div class="content table-responsive table-full-width">
+            <table class="table table-striped">
+                <thead>
+                <th>            Id        </th>
+                <th>            Price        </th>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+            {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+                
+
             </table>
         </div>
     </div>
