@@ -43,5 +43,11 @@ namespace WebClient.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public ActionResult AddOrder()
+        {
+            return Redirect("Index");
+        }
     }
 }
