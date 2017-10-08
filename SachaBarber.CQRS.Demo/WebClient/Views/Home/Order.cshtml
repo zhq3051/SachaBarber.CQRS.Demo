@@ -1,0 +1,42 @@
+﻿
+@model IEnumerable<SachaBarber.CQRS.Demo.Orders.ReadModel.Models.Order>
+<div class="col-md-12">
+
+    <div class="card">
+        <div class="header">
+            <h4 class="title">Striped Order</h4>
+            <p class="category">Here is a subtitle for this table</p>
+        </div>
+        <div class="content table-responsive table-full-width">
+            <table class="table table-striped">
+                <thead>
+                <th>            Id        </th>
+                <th>            description        </th>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+            {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+
+            </table>
+        </div>
+        <div class="clearfix"></div>
+        <div class="text-center">
+            <form action="/Home/AddOrder" method="post">
+                <button type="submit" class="btn btn-info btn-fill btn-wd">Create Order</button>
+            </form>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
